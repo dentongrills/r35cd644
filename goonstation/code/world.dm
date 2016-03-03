@@ -7,7 +7,7 @@ world
 /world/proc/load_mode()
 	var/text = file2text("data/mode.txt")
 	if (text)
-		var/list/lines = dd_text2list(text, "\n")
+		var/list/lines = splittext(text, "\n")
 		if (lines[1])
 			master_mode = lines[1]
 			diary << "Saved mode is '[master_mode]'"
@@ -49,7 +49,7 @@ world
 	if (!text)
 		diary << "Failed to load config/admins.txt\n"
 	else
-		var/list/lines = dd_text2list(text, "\n")
+		var/list/lines = splittext(text, "\n")
 		for(var/line in lines)
 			if (!line)
 				continue
@@ -68,21 +68,21 @@ world
 /world/proc/precache_create_txt()
 	if (!create_mob_html)
 		var/mobjs = null
-		mobjs = dd_list2text(typesof(/mob), ";")
+		mobjs = jointext(typesof(/mob), ";")
 		create_mob_html = grabResource("html/admin/create_object.html")
-		create_mob_html = dd_replacetext(create_mob_html, "null /* object types */", "\"[mobjs]\"")
+		create_mob_html = replacetext(create_mob_html, "null /* object types */", "\"[mobjs]\"")
 
 	if (!create_object_html)
 		var/objectjs = null
-		objectjs = dd_list2text(typesof(/obj), ";")
+		objectjs = jointext(typesof(/obj), ";")
 		create_object_html = grabResource("html/admin/create_object.html")
-		create_object_html = dd_replacetext(create_object_html, "null /* object types */", "\"[objectjs]\"")
+		create_object_html = replacetext(create_object_html, "null /* object types */", "\"[objectjs]\"")
 
 	if (!create_turf_html)
 		var/turfjs = null
-		turfjs = dd_list2text(typesof(/turf), ";")
+		turfjs = jointext(typesof(/turf), ";")
 		create_turf_html = grabResource("html/admin/create_object.html")
-		create_turf_html = dd_replacetext(create_turf_html, "null /* object types */", "\"[turfjs]\"")
+		create_turf_html = replacetext(create_turf_html, "null /* object types */", "\"[turfjs]\"")
 
 // drsingh for faster ban panel loads
 //Wire note: this has been gutted to only do stuff for jobbans until I get round to converting that system
@@ -107,7 +107,7 @@ world
 	if (!text)
 		diary << "Failed to load config/testers.txt\n"
 	else
-		var/list/lines = dd_text2list(text, "\n")
+		var/list/lines = splittext(text, "\n")
 		for(var/line in lines)
 			if (!line)
 				continue
@@ -226,7 +226,7 @@ var/f_color_selector_handler/F_Color_Selector
 			Ar.build_sims_score()
 
 	spawn(0)
-		url_regex = new("/(https?|byond|www)(\\.|:\\/\\/)/i")
+		url_regex = new("(https?|byond|www)(\\.|:\\/\\/)", "i")
 
 	if (config.env == "dev") //WIRE TODO: Only do this (fallback to local files) if the coder testing has no internet
 		recursiveFileLoader("browserassets/")
@@ -501,7 +501,7 @@ var/f_color_selector_handler/F_Color_Selector
 		features += "hosted by <b>[config.hostedby]</b>"
 
 	if (features)
-		s += ": [dd_list2text(features, ", ")]"
+		s += ": [jointext(features, ", ")]"
 
 	/* does this help? I do not know */
 	if (src.status != s)

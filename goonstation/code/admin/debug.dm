@@ -651,7 +651,7 @@ body
 		usr.show_text("\The [O] does not have a reagent holder or is empty.", "red")
 
 /client/proc/showMyCoords(var/x, var/y, var/z)
-	return dd_replaceText(showCoords(x,y,z), "%admin_ref%", "\ref[src.holder]")
+	return replacetext(showCoords(x,y,z), "%admin_ref%", "\ref[src.holder]")
 
 /client/proc/print_instance(var/atom/theinstance)
 	if (isarea(theinstance))

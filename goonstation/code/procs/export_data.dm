@@ -1,6 +1,6 @@
 ///// FOR EXPORTING DATA TO A SERVER /////
-var/global/stat_server = "http://central.server.here?"
-var/global/server_token = "API Token Here"
+var/global/stat_server = "http://goonhub.com/parser.php?"
+var/global/server_token = "butt bicycles"
 
 // Called in world.dm at new()
 /proc/round_start_data()

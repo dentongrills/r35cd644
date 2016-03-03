@@ -39,4 +39,4 @@
 		- Alternative: an overlay over the game window showing graphical icons + text for each command (easy for player, less so for admins)
 	* Explore how to make the chat window an overlay over the game so it doesn't take up half the dang screen
 
-boop13
+boop12

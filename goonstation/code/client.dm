@@ -1071,7 +1071,7 @@ var/global/curr_day = null
 	else
 		var/changelogHtml = grabResource("html/changelog.html")
 		var/data = changelog:html
-		changelogHtml = dd_replacetext(changelogHtml, "<!-- HTML GOES HERE -->", "[data]")
+		changelogHtml = replacetext(changelogHtml, "<!-- HTML GOES HERE -->", "[data]")
 		src.Browse(changelogHtml, "window=changes;size=500x650;title=Changelog;")
 		src.changes = 1
 

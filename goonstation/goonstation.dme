@@ -1173,7 +1173,6 @@ var/datum/preMapLoad/preMapLoad = new
 #include "code\WorkInProgress\recycling\disposal_chute.dm"
 #include "code\WorkInProgress\recycling\mail_chute.dm"
 #include "code\WorkInProgress\recycling\scrap.dm"
-#include "code\WorkInProgress\regex\Regex.dm"
 #include "code\WorkInProgress\Spaceship\communications.dm"
 #include "code\WorkInProgress\Spaceship\engine.dm"
 #include "code\WorkInProgress\Spaceship\life_support.dm"
@@ -1190,8 +1189,5 @@ var/datum/preMapLoad/preMapLoad = new
 #include "libs\Base64\binary.dm"
 #include "libs\Base64\hexadecimal.dm"
 #include "libs\Base64\text.dm"
-#include "libs\JSON\_JSON.dm"
-#include "libs\JSON\JSON Reader.dm"
-#include "libs\JSON\JSON Writer.dm"
 #include "maps\config\map.dm"
 // END_INCLUDE
