@@ -73,7 +73,7 @@
 
 	//Environment
 	var/env = "prod"
-	var/cdn = ""
+	var/cdn = "http://cdn.goonhub.com/"
 	var/disableResourceCache = 0
 
 /datum/configuration/New()
